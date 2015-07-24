@@ -1,0 +1,600 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"le",
+				"lengthSort"
+			],
+			[
+				"path",
+				"pathUtil"
+			],
+			[
+				"review",
+				"reviewtext"
+			],
+			[
+				"re",
+				"review"
+			],
+			[
+				"search",
+				"searchpath"
+			],
+			[
+				"mul",
+				"multiply"
+			],
+			[
+				"get",
+				"getConnection"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 246.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"package",
+				"Package Control: Remove Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"uninsa",
+				"Nodejs::NPM::Uninstall"
+			]
+		],
+		"width": 416.0
+	},
+	"console":
+	{
+		"height": 309.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/leeyh/sk_education/javascript",
+		"/C/leeyh/newmilestone/CarTeamSource/serverfile/source",
+		"/C/leeyh/newmilestone/CarTeamSource/serverfile/source/routes",
+		"/C/leeyh/newmilestone/CarTeamSource/serverfile/source/routes/innerdata",
+		"/C/leeyh/sk_education/DataBase/lecture",
+		"/C/leeyh/sk_education/DataBase/lecture/0710/myproject",
+		"/C/leeyh/sk_education/DataBase/lecture/0710/myproject/mongo1",
+		"/C/leeyh/sk_education/DataBase/lecture/0710/myproject/mongo1/node_modules",
+		"/C/leeyh/sk_education/DataBase/lecture/0713",
+		"/C/leeyh/sk_education/DataBase/util"
+	],
+	"file_history":
+	[
+		"/C/leeyh/newmilestone/CarTeamSource/serverfile/source/app.js",
+		"/C/leeyh/newmilestone/CarTeamSource/serverfile/source/routes/index.js",
+		"/C/leeyh/newmilestone/CarTeamSource/serverfile/source/routes/innerdata/database.js",
+		"/C/leeyh/sk_education/Server/lecture/0724/02/cookie.js",
+		"/C/leeyh/newmilestone/CarTeamSource/serverfile/source/routes/innerdata/dataobject.js",
+		"/C/leeyh/sk_education/javascript/basic/c01.js",
+		"/C/leeyh/newmilestone/CarTeamSource/serverfile/source/routes/innerdata/datastore.js",
+		"/C/leeyh/util/Sublime Text Build 3083 x64/Data/Packages/User/Xdebug.sublime-settings",
+		"/C/leeyh/util/Sublime Text Build 3083 x64/Data/Packages/Xdebug Client/Xdebug.sublime-settings",
+		"/C/leeyh/sk_education/Server/lecture/0724/note.txt",
+		"/C/leeyh/sk_education/Server/lecture/0724/01/package.json",
+		"/C/leeyh/sk_education/Server/lecture/0721/02fileupload.js",
+		"/C/leeyh/newmilestone/CarTeamSource/serverfile/source/node_modules/mongoose/lib/model.js",
+		"/C/leeyh/sk_education/Server/lecture/0724/01/router/movie_router.js",
+		"/C/leeyh/sk_education/Server/lecture/0724/01/router/theater_router.js",
+		"/C/leeyh/sk_education/Server/lecture/0724/01/router/package.json",
+		"/C/leeyh/sk_education/Server/lecture/0724/02/session.js",
+		"/C/leeyh/sk_education/Server/lecture/0724/01/locationinfo.js",
+		"/C/leeyh/sk_education/Server/lecture/0723/01/package.json",
+		"/C/leeyh/sk_education/Server/lecture/0720/etc/homework.js",
+		"/C/leeyh/sk_education/Server/lecture/0723/01/updowngame.js",
+		"/C/leeyh/sk_education/Server/lecture/0723/04/nosql.js",
+		"/C/leeyh/newmilestone/CarTeamSource/serverfile/source/node_modules/mongoose/node_modules/mongodb/node_modules/mongodb-core/lib/cursor.js",
+		"/C/leeyh/sk_education/Server/lecture/0722/03/router/theater_router.js",
+		"/C/leeyh/sk_education/DataBase/lecture/0709/myproject/mongo1/node_modules/mongoose/lib/schematype.js",
+		"/C/leeyh/sk_education/DataBase/lecture/0709/myproject/mongo1/exam1.js",
+		"/C/leeyh/newmilestone/CarTeamSource/serverfile/source/routes/datastore.js",
+		"/C/leeyh/preSource/NodeJS_Hanbit/MyProject/P12Modularization/routes/MemberInsert.js",
+		"/C/leeyh/newmilestone/CarTeamSource/serverfile/source/routes/database.js",
+		"/C/leeyh/newmilestone/CarTeamSource/serverfile/source/package.json",
+		"/C/leeyh/sk_education/Server/lecture/0723/04/node_modules/mongoose/examples/geospatial/geoJSONexample.js",
+		"/C/leeyh/preSource/NodeJS_Hanbit/MyProject/P11MemberListFileUpDownloadPage/app.js",
+		"/C/leeyh/preSource/NodeJS_Hanbit/MyProject/P10MemberListFixPage/app.js",
+		"/C/leeyh/preSource/NodeJS_Hanbit/MyProject/P21ChattingSendDataCrossDomainApp/app.js",
+		"/C/leeyh/sk_education/Server/lecture/0723/04/node_modules/mongoose/examples/geospatial/geospatial.js",
+		"/C/leeyh/sk_education/Server/lecture/0723/04/package.json",
+		"/C/leeyh/sk_education/DataBase/lecture/0713/myproject/board2/app.js",
+		"/C/leeyh/sk_education/ProjectCar/source/app.js",
+		"/C/leeyh/sk_education/Server/lecture/0723/03/text.txt",
+		"/C/leeyh/sk_education/ProjectCar/source/package.json",
+		"/C/leeyh/sk_education/Server/lecture/0723/02/echoServer.js",
+		"/C/leeyh/preSource/NodeJS_Hanbit/MyProject/P09MemberListPage/bin/www",
+		"/C/leeyh/preSource/NodeJS_Hanbit/MyProject/P05Upload/app.js",
+		"/C/leeyh/preSource/NodeJS_Hanbit/MyProject/P05Upload/public/uploadform.html",
+		"/C/leeyh/preSource/NodeJS_Hanbit/MyProject/P05Upload/views/list.html",
+		"/C/leeyh/sk_education/Server/lecture/0715/basic.js",
+		"/C/leeyh/preSource/NodeJS_Hanbit/MyProject/P08MongoDB_Template/package.json",
+		"/C/leeyh/preSource/NodeJS_Hanbit/MyProject/P08MongoDB_Template/app.js",
+		"/C/leeyh/preSource/NodeJSProgrammingForModernWeb/n602ImageServer.js",
+		"/C/leeyh/sk_education/Server/lecture/0722/03/views/theaterlist.ejs",
+		"/C/leeyh/sk_education/Server/lecture/0722/03/locationinfo.js",
+		"/C/leeyh/sk_education/Server/lecture/0722/03/router/movie_router.js",
+		"/C/leeyh/sk_education/Server/lecture/0722/03/views/movielist.ejs",
+		"/C/leeyh/sk_education/Server/lecture/0722/03/views/theaterdetail.ejs",
+		"/C/leeyh/sk_education/Server/lecture/0722/01/test_inputandsort.js",
+		"/C/leeyh/sk_education/Server/lecture/0722/03/views/newMovie.ejs",
+		"/C/leeyh/sk_education/Server/lecture/0722/03/views/moviedetail.ejs",
+		"/C/leeyh/sk_education/Server/lecture/0720/express.js",
+		"/C/leeyh/sk_education/Server/lecture/0720/movie_router.js",
+		"/C/leeyh/sk_education/Server/lecture/0722/03/views/newMovieDetail.ejs",
+		"/C/leeyh/sk_education/Server/lecture/0722/02/views/insertTheater.ejs",
+		"/C/leeyh/sk_education/Server/lecture/0722/02/locationinfo.js",
+		"/C/leeyh/sk_education/DataBase/lecture/0709/myproject/mongo1/node_modules/mongoose/node_modules/bson/node_modules/bson-ext/node_modules/node-pre-gyp/node_modules/tar-pack/node_modules/fstream/lib/writer.js",
+		"/C/leeyh/sk_education/Server/lecture/0722/01/views/sort.ejs",
+		"/C/leeyh/sk_education/Server/lecture/0721/package.json",
+		"/C/leeyh/sk_education/Server/lecture/0720/views/movieDetail.ejs",
+		"/C/leeyh/sk_education/Server/lecture/0721/router/movie_router.js",
+		"/C/leeyh/sk_education/DataBase/lecture/0710/myproject/board/views/updateform.ejs",
+		"/C/leeyh/sk_education/Server/lecture/0721/views/moviedetail.ejs",
+		"/C/leeyh/sk_education/Server/lecture/0721/views/movielist.ejs",
+		"/C/leeyh/sk_education/Server/lecture/0721/01fileDirectory.js",
+		"/C/leeyh/sk_education/DataBase/lecture/0709/myproject/mongo1/node_modules/mongoose/node_modules/ms/test/support/jquery.js",
+		"/C/leeyh/sk_education/Server/lecture/0717HomeWork/fileupload.js",
+		"/C/leeyh/sk_education/Server/lecture/0721/protocol.txt",
+		"/C/leeyh/sk_education/DataBase/lecture/0710/myproject/board/routes/index.js",
+		"/C/leeyh/sk_education/Server/lecture/0721/views/moivelist.ejs",
+		"/C/leeyh/sk_education/Server/lecture/0714/basic.js",
+		"/C/leeyh/sk_education/Server/lecture/0721/views/newMovieDetail.ejs",
+		"/C/leeyh/sk_education/Server/lecture/0721/views/newMovie.ejs",
+		"/C/leeyh/sk_education/Server/lecture/0721/node_modules/mysql/Readme.md",
+		"/C/leeyh/sk_education/DataBase/lecture/0709/myproject/mysql1/exam2.js",
+		"/C/leeyh/sk_education/DataBase/lecture/0709/myproject/mysql1/node_modules/mysql/Readme.md",
+		"/C/leeyh/sk_education/DataBase/lecture/0713/myproject/board2/routes/index.js",
+		"/C/leeyh/sk_education/Server/lecture/0717HomeWork/package.json",
+		"/C/leeyh/sk_education/Server/lecture/0721/02fileUploading.js",
+		"/C/leeyh/sk_education/Server/lecture/0721/fileDirectory.js",
+		"/C/leeyh/sk_education/Server/lecture/0715/package.json",
+		"/C/leeyh/sk_education/Server/lecture/0716/server02/server02.js",
+		"/C/leeyh/sk_education/Server/lecture/0715/hello.js",
+		"/C/leeyh/sk_education/Server/lecture/0721/server0721.js",
+		"/C/leeyh/sk_education/Server/lecture/0721/app.js",
+		"/C/leeyh/sk_education/Server/lecture/0720/views/movielist.ejs",
+		"/C/leeyh/sk_education/Server/lecture/fileupload/package.json",
+		"/C/leeyh/sk_education/Server/lecture/fileupload/fileupload.js",
+		"/C/leeyh/sk_education/Server/lecture/0717homework/package.json",
+		"/C/leeyh/sk_education/javascript/01/chapter1.js",
+		"/C/leeyh/sk_education/Server/lecture/0720/homework.js",
+		"/C/leeyh/sk_education/Server/lecture/0720/movieServer.js",
+		"/C/leeyh/sk_education/Server/lecture/0716/b.js",
+		"/C/leeyh/sk_education/Server/lecture/0715/aaa/aaa/basic.js",
+		"/C/leeyh/sk_education/Server/lecture/0717/4.6.2RestServer/node_modules/formidable/Readme.md",
+		"/C/leeyh/sk_education/Server/lecture/0717/4.6.2RestServer/restServer.js",
+		"/C/leeyh/sk_education/Server/lecture/0717homework/app.js",
+		"/C/leeyh/sk_education/Server/lecture/0715/mymodule.js",
+		"/C/leeyh/sk_education/Server/lecture/0716/server01/server.js",
+		"/C/Users/대전창조경제혁신센터/Desktop/0715/mymodule.js",
+		"/C/leeyh/sk_education/Server/lecture/0717/4.6.2RestServer/package.json",
+		"/C/leeyh/sk_education/Server/lecture/0716/server04/server04.js",
+		"/C/leeyh/sk_education/Server/lecture/0716/server05/fileupload.js",
+		"/C/leeyh/sk_education/Server/lecture/0717/4.6.2RestServer/node_modules/urlencode/README.md",
+		"/C/leeyh/sk_education/Server/lecture/0716/server03/server.js",
+		"/C/leeyh/sk_education/Server/lecture/0717/server05/fileupload.js",
+		"/C/leeyh/sk_education/Server/lecture/0716/server02/server02",
+		"/C/leeyh/sk_education/Server/lecture/0716/server.js",
+		"/C/leeyh/sk_education/Server/lecture/0716/index.html",
+		"/C/leeyh/sk_education/Server/lecture/0716/server02",
+		"/C/leeyh/sk_education/DataBase/lecture/0713/myproject/board2/routes/users.js",
+		"/C/leeyh/sk_education/DataBase/lecture/0713/myproject/board/routes/users.js",
+		"/C/leeyh/sk_education/DataBase/lecture/0713/myproject/board/routes/index.js",
+		"/C/leeyh/sk_education/Server/lecture/0715/basic5.js",
+		"/C/leeyh/sk_education/DataBase/lecture/0713/myproject/board2/views/list.ejs",
+		"/C/leeyh/sk_education/DataBase/lecture/0713/myproject/board2/views/index.ejs",
+		"/C/leeyh/sk_education/DataBase/lecture/0713/myproject/board2/views/read.ejs",
+		"/C/leeyh/sk_education/DataBase/lecture/0713/myproject/board2/views/updateform.ejs",
+		"/C/Users/대전창조경제혁신센터/Desktop/test.js",
+		"/C/leeyh/sk_education/DataBase/lecture/0713/myproject/board2/package.json",
+		"/C/leeyh/sk_education/DataBase/lecture/0713/myproject/board/views/read.ejs",
+		"/C/leeyh/sk_education/DataBase/lecture/0713/myproject/board/views/writerform.ejs"
+	],
+	"find":
+	{
+		"height": 42.0
+	},
+	"find_in_files":
+	{
+		"height": 105.0,
+		"where_history":
+		[
+			"",
+			"C:\\leeyh\\preSource\\NodeJS_Hanbit\\MyProject",
+			"",
+			"C:\\leeyh\\sk_education\\Server\\lecture,",
+			"C:\\leeyh\\sk_education\\Server\\lecture",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"mongoose",
+			"--debug",
+			"locationinfo.js",
+			"x-www-form",
+			"urlencoded",
+			"sendMovieList",
+			"handlePostRequest",
+			".on",
+			"event.on(",
+			".query.",
+			"session",
+			"visitInfo",
+			"getTime()",
+			"getTime(",
+			"date",
+			"getMonth()",
+			"getMonth",
+			"date",
+			"insertAction",
+			"exports",
+			"routes",
+			"Member.",
+			"Member",
+			"find",
+			".find(",
+			".find({",
+			"exports",
+			"module",
+			"__",
+			"Member",
+			"global",
+			"jsonpTest",
+			"logger",
+			"formidable",
+			"multipart",
+			"req.query",
+			"parse",
+			"?",
+			"showMovieDetail",
+			"showTheaterdetail",
+			"set?",
+			"insert into",
+			"movie",
+			"review",
+			"Review",
+			"reviews",
+			"showMovieDetail",
+			"titlelist",
+			"movielist",
+			"detail",
+			"showMovieDetail",
+			"titlelist",
+			"Detail",
+			"showMovieDetail",
+			"addMovie",
+			"samples",
+			"showTheaterList",
+			"pool",
+			"ParserInt",
+			"Parse",
+			"router",
+			"<%=",
+			"moviesdata",
+			"bad que",
+			"uploads",
+			"path",
+			"insertPage",
+			"\"hidden",
+			"titlelist",
+			"movies",
+			"for(",
+			"moviesdata",
+			"release()",
+			"select",
+			"moviesdata",
+			"forEach(",
+			"forEach",
+			"rows[",
+			"rows",
+			"sendStatus",
+			"select",
+			"showMovieList",
+			"pool.getConnection(",
+			"getConnection(",
+			"/router/",
+			"pathUtil",
+			"files",
+			"review",
+			"'post'",
+			"review",
+			"showMovieList",
+			"router",
+			"titlelist",
+			"addMovie",
+			"showMovieList",
+			"movieList",
+			"end(",
+			".end(",
+			"END",
+			"end(",
+			"querystring",
+			"start",
+			"createUploadFile",
+			"file",
+			"createUploadFile",
+			"movieList",
+			"itemObj",
+			"jsonResult",
+			"deleteMovie",
+			"updateMovie",
+			"movieatt",
+			"queryNameURLParse",
+			"handlePostRequest",
+			"movieDetail",
+			"movieList",
+			"movieData",
+			"movieList",
+			"buffer",
+			"newMovie",
+			"queryNameURLParse",
+			"updateMovie",
+			"movieDetail",
+			"sendMovieDetail",
+			"movieData",
+			"movieDetail",
+			"queryNameURLParse",
+			");\n",
+			"sendMovieDetail"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"movieDetail",
+			"movieData"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				2,
+				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
+			],
+			[
+				1,
+				1,
+				2,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.921644120708,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.xdebug":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "sublime_project.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"xdebug":
+		{
+			"hide_conflict": false,
+			"restore_index":
+			{
+				"15":
+				{
+					"group": 0,
+					"index": 0
+				},
+				"16":
+				{
+					"group": 0,
+					"index": 2
+				},
+				"24":
+				{
+					"group": 2,
+					"index": 1
+				},
+				"25":
+				{
+					"group": 1,
+					"index": 0
+				},
+				"26":
+				{
+					"group": 2,
+					"index": 0
+				},
+				"27":
+				{
+					"group": 1,
+					"index": 1
+				},
+				"29":
+				{
+					"group": 0,
+					"index": 1
+				}
+			},
+			"restore_layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						2,
+						1
+					],
+					[
+						0,
+						1,
+						1,
+						2
+					],
+					[
+						1,
+						1,
+						2,
+						2
+					]
+				],
+				"cols":
+				[
+					0.0,
+					0.5,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					0.682384823848,
+					1.0
+				]
+			}
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 306.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
