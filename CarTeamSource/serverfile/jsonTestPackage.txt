@@ -1,0 +1,37 @@
+127.0.0.1:3000/page/write
+
+{
+    "user_id" : "OPOPOP@test.com",
+    "title" : "ABCBDBREEE1234title",
+    "contents" : "contnjdkfjklaeji12jkljklsdjilwe23jkl",
+    "img_path" : "ajkl.jpeg"
+}
+
+127.0.0.1:3000/page/fix
+
+{
+    "page_number" : "14",
+    "user_id" : "OPOPOP@test.com",
+    "title" : "ABCBDBREEE1234title",
+    "contents" : "contnjdkfjklaeji12jkljklsdjilwe23jkl",
+    "img_path" : "ajkl.jpeg"
+}
+
+127.0.0.1:3000/page/delete
+
+{
+    "page_number" : "2",
+    "user_id" : "djsfhjlae@test.com"
+}
+
+
+
+127.0.0.1:3000/reply/insert
+
+{
+    "page_number" : "0",
+    "replylist" : {
+        "user_id" : "FixId@test.com",
+        "contents" : "hahahahahahah!"
+    }
+}

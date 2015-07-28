@@ -1,18 +1,14 @@
 
-
-
 'use strict';
 
-//var mongoose = require("mongoose");
-//var config = require("express-config");
-  
-
-
 var mongoose = require('mongoose');
+var autoincrement = require('mongoose-auto-increment');
 
 mongoose.connect('mongodb://localhost/carDB');
 
 var db = mongoose.connection;
+
+autoincrement.initialize(db);
 
 db.on('error', console.error.bind( console, 'connection Error:' ));
 
@@ -31,9 +27,9 @@ exports.Database = db;
 
 var Schema = mongoose.Schema;
 
-//unique_id:Schema.Types.ObjectId,
 var SIGNUP = mongoose.Schema({	
-	unique_id:Schema.Types.ObjectId,
+	signup_uid:Schema.Types.ObjectId,
+	signup_number:Number,
 	user_id:String,
 	user_pw:String,
 	car_name:String,
@@ -42,30 +38,57 @@ var SIGNUP = mongoose.Schema({
 });
 
 //var SignUpCollection = mongoose.model('SignUp', SignUp, 'SignUp');
+SIGNUP.plugin(autoincrement.plugin, {
+	model : 'SignUp',
+	field : 'signup_number',
+	startAt : 0,
+	incrementBy: 1
+});
 exports.SignUp = mongoose.model('SignUp', SIGNUP, 'SignUp');
 
-
-var PAGELIST = mongoose.Schema({
-	unique_id:Schema.Types.ObjectId,
-	user_id:String,
-	title:String,
-	contents:String,
-	img_path:String,
-	replylist:[]
-}, {collection:"PageList"});
-
-//var PageListCollection = mongoose.model('PageList', SignUp);
-exports.PageList = mongoose.model('PageList', PAGELIST);
-
-var ReplyData = {
-	unique_id:Schema.Types.ObjectId,
+/*
+var REPLY = mongoose.Schema({
+	reply_uid:Schema.Types.ObjectId,
+	reply_number:Number, // test increment 
 	user_id:String,
 	contents:String,
 	updated:{type:Date, default: Date.now }	
-};
+},{collection:"Reply"});
 
-exports.Reply = ReplyData;
+REPLY.plugin(autoincrement.plugin, {
+	model : 'Reply',
+	field : 'reply_number',
+	startAt : 0,
+	incrementBy: 1
+});
+mongoose.model('Reply', REPLY);
+*/
+var PAGELIST = mongoose.Schema({
+	page_uid:Schema.Types.ObjectId,
+	page_number:Number,
+	user_id:String,
+	title:String,
+	contents:String,
+	img_path:String,	
+	Replylist:[{
+			reply_uid:Schema.Types.ObjectId,
+			reply_number:Number , // test increment 
+			user_id:String,
+			contents:String,
+			updated:{type:Date, default: Date.now }	
+	}],
+	Replyincrement:{type:Number, default:0}
+}, {collection:"PageList"});
 
+//var PageListCollection = mongoose.model('PageList', SignUp);
+PAGELIST.plugin(autoincrement.plugin, {
+	model : 'PageList',
+	field : 'page_number',
+	startAt : 0,
+	incrementBy: 1
+});
+
+exports.PageList = mongoose.model('PageList', PAGELIST);
 
 
 
