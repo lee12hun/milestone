@@ -23,11 +23,21 @@ router.post('/signup', function(req, res, next) {
 });
 
 /* GET home page. */
-router.get('/page/:page_number', function(req, res, next) {
+router.get('/page/:user_id', function(req, res, next) {
 
-	consoel.log( "req.params : " , req.params );
+	//console.log( "req.params : " , req.params );
 
-	db.PageList.findOne( req.params ,function(err,data){
+	var pagePackage = {	
+		page_uid :0,	
+		page_number : 1,
+		user_id :1,
+		title :1,
+		contents : 1,
+		img_path:1,
+		replylist:1
+	};
+	//db.PageList.findOne( req.params ).select(object).exec( function(err,data){
+	db.PageList.findOne( req.params , pagePackage , function(err,data){
 		if( err ){
 			sendJSON("Error Page", res, {"RESULT":false , "RESULT_MSG":err} );
 		}			
@@ -35,8 +45,6 @@ router.get('/page/:page_number', function(req, res, next) {
 			sendJSON("Success Page", res, {"RESULT":true, "CONTENTS":data} );
 		}
 	});
-
-	res.send("end");
 });
 
 router.post('/page/write', function(req, res, next) {
@@ -53,8 +61,7 @@ router.post('/page/write', function(req, res, next) {
 
 	*/
 
-	db.PageList.create( req.body , function( err, item ){	
-
+	db.PageList.create( req.body , function( err, item ){
 		if( err ){			
 			sendJSON("Error Page", res, {"RESULT":false , RESULT_MSG:err} );
 		}
@@ -153,8 +160,7 @@ router.post('/page/delete', function(req, res, next) {
 				}
 			});
 		}			
-	});	
-	//res.send("end");
+	});
 });
 
 
@@ -162,8 +168,7 @@ router.post('/reply/insert', function(req, res, next) {
 
 	console.log(req.body);
 
-	/*	
-		PAGELIST
+	/*	PAGELIST
 		
 		page_uid // page_number
 
@@ -182,10 +187,10 @@ router.post('/reply/insert', function(req, res, next) {
 		else{				
 			// 댓글별 auto _increment 추가 
 			var replyObject = req.body.replylist;
-			replyObject.reply_number = doc.Replyincrement++;
+			replyObject.reply_number = doc.replyincrement++;
 			console.log("replyObject : ",replyObject);
 
-			doc.Replylist.push(replyObject);
+			doc.replylist.push(replyObject);
 
 			doc.save(function(err){
 				if( err ){			
@@ -200,70 +205,81 @@ router.post('/reply/insert', function(req, res, next) {
 });
 
 
-router.post('/replay/delete', function(req, res, next) {
+router.post('/replay/terminate', function(req, res, next) {
 
 	console.log(req.body);
-	//console.log(db.Database.collections);
+	
+	/*  DELETE
+		page_uid  // page_number
 
-	///////////////////////////////////////////////////////////////////////
-	// save or create
+		replylist : {
+			reply_uid // reply_number
+		}
+	*/
 	
 	db.PageList
-	.findOne({ user_id: 'lee@test.com' })
+	.findOne({ page_number: req.body.page_number })
 	.exec(function(err,doc){
-			if(err){
-				console.log(err);
-			}
-			else{
-				console.log(doc);
+		if(err){
+			sendJSON("Error Page", res, {"RESULT":false , "Error_Database":err} );
+		}
+		else if( doc == null && doc == undefined ){
+			// json data error 
+			sendJSON("Error Page", res, {"RESULT":false , "Error_JSONData":req.body} );
+		}
+		else{			
+			for(var index = 0 ; index < doc.replylist.length ; index++){
+				if( req.body.replylist.reply_number == doc.replylist[index].reply_number ){
 
-				// var id = req.body.unique_id;
-				// console.log(id);
-/*
-				for(var index = 0 ; index < doc.replylist.length ; index++){					
-					if( item.user_id;
+					console.log("pre delete " , doc.replylist);
+					doc.replylist.splice(index,1);
+					//delete doc.replylist[index];
+					console.log("post delete " , doc.replylist);
+					break;
 				}
-
-				doc.replylist.some( function( item ){
-					var result = item.user_id;
-
-					if( result ){
-						doc.replylist.splice(  )
-					}
-					
-					return result;
-				} ); 
-
-				doc.save(function(err){
-					if(err)
-						console.log("ERR" , err );
-
-				});
-	*/
-			}		
+			}
+			
+			sendJSON( "Success Page", res, {"RESULT":true} );
+		}		
 	});
-	
-	res.end("end");
 });
 
+
+router.get('/search', function(req, res, next){
+
+	//console.log("db.PageList" , db.PageList);
+
+	// var searchValue = req.body.keyword;
+
+	db.PageList.find(
+		{},
+		{'_id':false },
+		{
+			skip:0, // Starting Row
+    		limit:5, // Ending Row
+    		sort:{
+        			updated: -1 //Sort by Date Added DESC
+            }
+        },
+        function(err,data){
+
+        	console.log("data " , data);
+			res.send('aaaa');	
+	});
+	
+	
+});
 
 router.post('/search', function(req, res, next) {
 
 	//console.log("db.PageList" , db.PageList);
 
-	var searchValue = req.body.a;
+	var searchValue = req.body.keyword;
 
-	db.PageList.find( {"title": {'$regex':searchValue}}, {'_id':false},function( err, data ){
+	db.PageList.find( {"title": {'$regex':req.body.keyword}}, {'_id':false},function( err, data ){
 		console.log(data);
 	});
-
-	res.send('aaaa');
-	
+	res.send('aaaa');	
 });
 
-
-
-
 module.exports = router;
-
-

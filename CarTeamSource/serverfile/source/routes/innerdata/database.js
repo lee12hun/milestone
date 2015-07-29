@@ -70,14 +70,15 @@ var PAGELIST = mongoose.Schema({
 	title:String,
 	contents:String,
 	img_path:String,	
-	Replylist:[{
+	replylist:[{
 			reply_uid:Schema.Types.ObjectId,
-			reply_number:Number , // test increment 
+			reply_number:{type:Number, default:0} , // test increment 
 			user_id:String,
 			contents:String,
 			updated:{type:Date, default: Date.now }	
 	}],
-	Replyincrement:{type:Number, default:0}
+	replyincrement:{type:Number, default:0},
+	updated:{type:Date, default: Date.now }	
 }, {collection:"PageList"});
 
 //var PageListCollection = mongoose.model('PageList', SignUp);
