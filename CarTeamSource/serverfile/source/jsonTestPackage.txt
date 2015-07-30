@@ -17,7 +17,7 @@
     "img_path" : "ajkl.jpeg"
 }
 
-127.0.0.1:3000/page/delete
+127.0.0.1:3000/page/terminate
 
 {
     "page_number" : "2",
@@ -26,7 +26,7 @@
 
 
 
-127.0.0.1:3000/reply/insert
+127.0.0.1:3000/reply/write
 
 {
     "page_number" : "0",
@@ -36,7 +36,7 @@
     }
 }
 
-127.0.0.1:3000/replay/delete
+127.0.0.1:3000/replay/terminate
 
 {
     "page_number" : "0",

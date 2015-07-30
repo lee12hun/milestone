@@ -67,6 +67,7 @@ var PAGELIST = mongoose.Schema({
 	page_uid:Schema.Types.ObjectId,
 	page_number:Number,
 	user_id:String,
+	//title:{type:String,validate:NameAlphabeticValidator},
 	title:String,
 	contents:String,
 	img_path:String,	
@@ -91,6 +92,27 @@ PAGELIST.plugin(autoincrement.plugin, {
 
 exports.PageList = mongoose.model('PageList', PAGELIST);
 
+/////////////////////////////////////////////////////////////////////////
+// define validator  // http://bcho.tistory.com/890
 
+function NameAlphabeticValidator(val){
+    return val.match("^[a-zA-Z\(\)]+$");
+}
 
+function MemoLengthValidator(val){
+    if(val.length>10) return null;
+    return val;
+}
+
+////////////////////////
+// example
+
+// schema definition with validation
+// var MemoSchema= mongoose.Schema({
+//     username:{type:String,validate:NameAlphabeticValidator}
+//     ,memo:{type:String,validate:[
+//                     {validator:MemoLengthValidator,msg:'memo length should be less than 10'},
+//                     {validator:NameAlphabeticValidator,msg:'PATH `{PATH}` should be alphabet only. Current value is `{VALUE}` '}
+//                     ]}
+// });
 
