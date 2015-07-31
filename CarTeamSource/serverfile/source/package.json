@@ -13,6 +13,10 @@
     "express": "~4.13.1",
     "mongoose": "^4.0.8",
     "morgan": "~1.6.1",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "mongoose-auto-increment":"~4.0.0",
+    "aws-sdk":"~2.1.42",
+    "formidable":"~1.0.17",
+    "easyimage":"~2.0.3"
   }
 }

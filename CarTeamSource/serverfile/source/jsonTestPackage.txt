@@ -1,51 +1,154 @@
-127.0.0.1:3000/page/write
+52.69.245.57:3000/login
+{
+    "user_id":"testID1",
+    "user_pw":"1234"
+}
 
 {
-    "user_id" : "OPOPOP@test.com",
+  "RESULT": true,
+  "MSG_TYPE": "login"
+}
+
+52.69.245.57:3000/signup
+
+{
+    "user_id":"testID12",
+    "user_pw":"1234",
+    "car_name":"SONATA",
+    "car_career":100
+}
+
+{
+  "RESULT": true,
+  "MSG_TYPE": "login"
+}
+
+
+
+52.69.245.57:3000/page/5
+
+get
+
+{
+  "RESULT": true,
+  "CONTENTS": {
+    "page_number": 5,
+    "user_id": "testID12",
+    "title": "ABCBDBREEE1234title",
+    "contents": "contnjdkfjklaeji12jkljklsdjilwe23jkl",
+    "img_path": "ajkl.jpeg",
+    "replylist": [{
+        "user_id": "FixId@test.com",
+        "contents": "hahahahahahah!",
+        "_id": "55bad18d0d6984c0006b1243",
+        "updated": "2015-07-31T01:38:21.414Z",
+        "reply_number": 6
+    }]
+  },
+  "MSG_TYPE": "login"
+}
+
+52.69.245.57:3000/page/write
+
+{
+    "user_id" : "testID12",
+    "title" : "fffffffffff1234",
+    "contents" : "contnjdkfjklaeji12jkljklsdjilwe23jkl",
+    "img_path" : "ajkl.jpeg"
+}
+
+
+{
+  "RESULT": true,
+  "MSG_TYPE": "page write"
+}
+
+52.69.245.57:3000/page/fix
+
+{
+    "page_number":7,
     "title" : "ABCBDBREEE1234title",
     "contents" : "contnjdkfjklaeji12jkljklsdjilwe23jkl",
     "img_path" : "ajkl.jpeg"
 }
 
-127.0.0.1:3000/page/fix
-
 {
-    "page_number" : "14",
-    "user_id" : "OPOPOP@test.com",
-    "title" : "ABCBDBREEE1234title",
-    "contents" : "contnjdkfjklaeji12jkljklsdjilwe23jkl",
-    "img_path" : "ajkl.jpeg"
+  "RESULT": true,
+  "MSG_TYPE": "page fix"
 }
 
-127.0.0.1:3000/page/terminate
+52.69.245.57:3000/page/terminate
 
 {
-    "page_number" : "2",
-    "user_id" : "djsfhjlae@test.com"
+    "page_number" : 5,
+    "user_id" : "testID12"
 }
 
 
+{
+  "RESULT": true,
+  "MSG_TYPE": "page terminate"
+}
 
-127.0.0.1:3000/reply/write
+
+52.69.245.57:3000/reply/write
 
 {
-    "page_number" : "0",
+    "page_number" : 6,
     "replylist" : {
         "user_id" : "FixId@test.com",
         "contents" : "hahahahahahah!"
     }
 }
 
-127.0.0.1:3000/replay/terminate
+{
+  "RESULT": true,
+  "MSG_TYPE": "reply write"
+}
+
+52.69.245.57:3000/replay/terminate
 
 {
-    "page_number" : "0",
+    "page_number" : 6,
     "replylist" : {
-        "reply_number" : "1"
+        "reply_number" : "5"
     }
 }
 
+{
+  "RESULT": true,
+  "MSG_TYPE": "reply terminate"
+}
 
+52.69.245.57:3000/search
+
+GET
+
+{
+  "RESULT": true,
+  "CONTENTS": {
+    "totalcount": 8
+  },
+  "MSG_TYPE": "search t"
+}
+
+
+52.69.245.57:3000/search
+{
+    "keyword":"",
+    "page_count":4
+}
+
+{
+  "RESULT": true,
+  "CONTENTS": [
+    {
+      "page_number": 9,
+      "title": "zzzzzzztitle"
+    }
+  ],
+  "MSG_TYPE": "search"
+}
 
 
 
@@ -89,3 +192,20 @@ enabled=1" | sudo tee -a /etc/yum.repos.d/mongodb.repo
 
 
 http://wingsnote.com/m/post/54
+
+
+
+///////////////////////////////////////////////////////////
+
+에러 메세지 타입 
+
+{
+  "RESULT": false,
+  "CONTENTS": {
+    "Type": "login",
+    "Error_ClientQuery": {
+      "user_id": "testID",
+      "user_pw": "1234"
+    }
+  }
+}

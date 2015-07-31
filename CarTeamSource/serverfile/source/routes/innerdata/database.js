@@ -33,7 +33,7 @@ var SIGNUP = mongoose.Schema({
 	user_id:String,
 	user_pw:String,
 	car_name:String,
-	car_birth:String,
+	car_career:Number,
 	updated:{type:Date, default: Date.now }	
 });
 

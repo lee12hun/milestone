@@ -1,60 +1,70 @@
 var express = require('express');
-var db = require('./innerdata/database');
+
+var db = require('./innerdata/database.js');
+var packet = require('./innerdata/packetmethod.js');
+
 var router = express.Router();
 
-function successCheck( reqQuery, res, err, pkData ){
 
-	if(err){
-		sendJSON("Error Page", res, {"RESULT":false , "CONTENTS" :{"Error_Database":err} });
-		return false; // error
-	}
-	else if( pkData == null && pkData == undefined ){// json data error 		
-		sendJSON("Error Page", res, {"RESULT":false , "CONTENTS" :{"Error_ClientQuery":reqQuery} });
-		return false; // error
-	}	
-	return true; // success 
-};
+/*
 
-function successCheck2( res, err ){
-
-	if( err ){
-		sendJSON("Error Page", res, {"RESULT":false , "CONTENTS" :{"Error_Database":err} });
-		return false; // error
-	}
-	return true; // success 
-};
-
-
-function successPacket(res, pkData){
-
-	if( pkData ){
-		sendJSON( "Success Page", res, {"RESULT":true , "CONTENTS":pkData } );	
-	}
-	else{
-		sendJSON( "Success Page", res, {"RESULT":true} );		
-	}
-	return true;
-};
-
-
-function sendJSON( log, res, item ) 
 {
-	console.log(log , item )
-	res.writeHead(200,{'Content-Type':'application/json'});
-	res.end( JSON.stringify( item ) );
-	//res.json( item );
-};
+    "user_id":"testID",
+    "user_pw":"1234"
+}
 
-router.post('/signup', function(req, res, next) {
-	db.SignUp.create( req.body , function( err, item ){	
-		if( err ){
-			console.log('error create = ', err );
-		}
-		else{
-			sendJSON( "Success ITEM : ", res , item );
+*/
+router.post('/login', function(req, res, next) {
+
+	var login = req.body;
+
+	db.SignUp.findOne(req.body, function( err, data){
+		console.log( err );
+		console.log( data );
+
+		if( packet.checkErrData("login", req.body, res, err, data ) ){
+
+			packet.success("login", res );
 		}
 	});
-	res.send("end");
+});
+
+/*
+
+{
+    "user_id":"testID12",
+    "user_pw":"1234",
+    "car_name":"SONATA",
+    "car_career":100
+}
+
+*/
+router.post('/signup', function(req, res, next) {
+
+	var duplicationcheck = {
+		user_id : req.body.user_id
+	}
+
+	db.SignUp.findOne(duplicationcheck, function( err, data){
+		console.log( err );
+		console.log( data );
+
+		if( packet.checkErr("signup", err ) ){
+
+			if( data == null || data == undefined ){ // users already exists with user_id
+
+				db.SignUp.create( req.body , function( err, item ){
+
+					if( packet.checkErrData("signup", req.body, res, err, item ) ){
+
+						packet.success("signup", res );
+					}
+				});
+			}else{				
+				sendJSON("Error Page", res, {"RESULT":false , "CONTENTS" :{ "Type":"signup" , "Error_DuplicationID":duplicationcheck} });
+			}		
+		}
+	});	
 });
 
 
@@ -74,9 +84,9 @@ router.get('/page/:page_number', function(req, res, next)
 	// find 1 type
 	db.PageList.findOne( req.params , page_package , function( err, pkData ){
 
-		if( successCheck( req.params, res, err, pkData ) ){
+		if( packet.checkErrData("page ", req.params, res, err, pkData ) ){
 
-			successPacket( res, pkData );
+			packet.success("page ", res, pkData );
 		}
 	});
 
@@ -85,13 +95,13 @@ router.get('/page/:page_number', function(req, res, next)
 });
 
 /*	client protocol
-	
-	PAGELIST
-	
-	user_id
-	title
-	contents
-	img_path
+
+{
+    "user_id" : "testID12",
+    "title" : "ABCBDBREEE1234title",
+    "contents" : "contnjdkfjklaeji12jkljklsdjilwe23jkl",
+    "img_path" : "ajkl.jpeg"
+}
 
 */
 
@@ -101,21 +111,31 @@ router.post('/page/write', function(req, res, next){
 
 	db.PageList.create( req.body , function( err, item ){
 		
-		if( successCheck( req.body, res, err, item ) ){
+		if( packet.checkErrData("page write", req.body, res, err, item ) ){
 
-			sendJSON( "Success Page", res, {"RESULT":true} );
+			packet.success("page write", res );
+			//sendJSON( "Success Page", res, {"RESULT":true} );
 		}
 	});	
 });
 
 
+
+// form-data type
+//router.post('/page/write/upload', filemanager.fileupload );
+
+
+
 /*	client protocol
 	
 	page_uid  // page_number
-	user_id
-	title
-	contents
-	img_path
+
+{
+    "page_number":0,
+    "title" : "ABCBDBREEE1234title",
+    "contents" : "contnjdkfjklaeji12jkljklsdjilwe23jkl",
+    "img_path" : "ajkl.jpeg"
+}
 
 */
 router.post('/page/fix', function(req, res, next) {
@@ -124,9 +144,9 @@ router.post('/page/fix', function(req, res, next) {
 
 	db.PageList.findOneAndUpdate( {page_number:req.body.page_number}, req.body, function(err, data, raw){
     	
-		if( successCheck( req.body, res, err, data ) ){
+		if( packet.checkErrData("page fix", req.body, res, err, data ) ){
 
-			successPacket( res );
+			packet.success("page fix", res );
 		}
 	});
 
@@ -156,7 +176,11 @@ router.post('/page/fix', function(req, res, next) {
 /*	client protocol
 	
 	signup_uid // page_number
-	user_id
+
+{
+    "page_number" : 5,
+    "user_id" : "djsfhjlae@test.com"
+}
 */
 router.post('/page/terminate', function(req, res, next) {
 
@@ -166,13 +190,13 @@ router.post('/page/terminate', function(req, res, next) {
 	.findOne({ page_number: req.body.page_number , user_id : req.body.user_id })
 	.exec(function(err,doc){
 		
-		if( successCheck( req.body, res, err, doc ) ){
+		if( packet.checkErrData("page terminate", req.body, res, err, doc ) ){
 
 			doc.remove(function(removeErr){
 
-				if( successCheck2( res, err ) ){
+				if( packet.checkErr("page terminate", res, err ) ){
 
-					successPacket( res );					
+					packet.success("page terminate", res );					
 				}
 			});
 		}	
@@ -184,10 +208,14 @@ router.post('/page/terminate', function(req, res, next) {
 
 	page_uid // page_number
 
-	replylist : {
-		user_id
-		contents
-	}
+{
+    "page_number" : 0,
+    "replylist" : {
+        "user_id" : "FixId@test.com",
+        "contents" : "hahahahahahah!"
+    }
+}
+
 */
 
 router.post('/reply/write', function(req, res, next) {
@@ -198,7 +226,7 @@ router.post('/reply/write', function(req, res, next) {
 	.findOne({ page_number: req.body.page_number })
 	.exec(function(err,doc){
 
-		if( successCheck( req.body, res, err, doc ) ){
+		if( packet.checkErrData("reply write", req.body, res, err, doc ) ){
 
 			// 댓글별 auto _increment 추가 
 			var replyObject = req.body.replylist;
@@ -211,53 +239,59 @@ router.post('/reply/write', function(req, res, next) {
 
 				console.log( "errerrerr" ,save_err );
 
-				if( successCheck2( res, save_err ) ){
+				if( packet.checkErr("reply write", res, save_err ) ){
 
-					successPacket( res );
+					packet.success("reply write", res );
 				}
 			});
 		}	
 	});
 });
 
+/*  DELETE
+	page_uid  // page_number
 
-router.post('/replay/terminate', function(req, res, next) {
+{
+    "page_number" : "0",
+    "replylist" : {
+        "reply_number" : "1"
+    }
+}
 
-	console.log(req.body);
-	
-	/*  DELETE
-		page_uid  // page_number
+*/
 
-		replylist : {
-			reply_uid // reply_number
-		}
-	*/
+router.post('/reply/terminate', function(req, res, next) {
+
+	console.log(req.body);	
 	
 	db.PageList
 	.findOne({ page_number: req.body.page_number })
 	.exec(function(err,doc){
-		if( successCheck( req.body, res, err, doc ) ){
+		if( packet.checkErrData("reply terminate", req.body, res, err, doc ) ){
 			
 			var index = 0;
 			for( ; index < doc.replylist.length ; index++)
 			{
 				if( req.body.replylist.reply_number == doc.replylist[index].reply_number ){
 
-					console.log("pre delete " , doc.replylist);
 					doc.replylist.splice(index,1);
 					//delete doc.replylist[index];
-					console.log("post delete " , doc.replylist);
 					break;
 				}
 			}
+			if( index == doc.replylist.length ){
+				// nothing delete item
+				sendJSON("Error Page", res, {"RESULT":false , "CONTENTS" :{ "Type":"reply terminate" , "Error_nothingItem":req.body} });
+			}
+			else{
+				doc.save( function(err){
 
-			console.log("index",index);
+					if( packet.checkErr("reply terminate", err ) ){
 
-			doc.save( function(err){
-				if( successCheck2( err ) ){
-					successPacket( res );
-				}
-			});		
+						packet.success("reply terminate", res );
+					}
+				});
+			}			
 		}		
 	});
 });
@@ -279,9 +313,13 @@ router.get('/search', function(req, res, next){
 	db.PageList.find( finder,selecter,order)
 	.count(function(err,page_totalcount){
 
-		if( successCheck( req.query, res, err, page_totalcount ) ){
+		if( packet.checkErrData("search t", req.query, res, err, page_totalcount ) ){
 
-			successPacket( res, page_totalcount );
+			var packagedata = {
+				totalcount : page_totalcount
+			};
+			
+			packet.success("search t", res, packagedata );
 		}
     	//sendJSON("Success Page", res, {"RESULT":true , "Contents":page_totalcount } );
     });
@@ -289,8 +327,12 @@ router.get('/search', function(req, res, next){
 
 // 검색어 리스트 전달 
 /*  	
-	keyword
-	page_count
+
+{
+    "keyword":"",
+    "page_count":4
+}
+
 */
 router.post('/search', function(req, res, next) {
 
@@ -321,9 +363,9 @@ router.post('/search', function(req, res, next) {
 
 	db.PageList.find( finder, search_package, order, function(err,pk){
 
-		if( successCheck( req.body, res, err, pk ) ){
+		if( packet.checkErrData("search", req.body, res, err, pk ) ){
 
-			successPacket( res, pk );
+			packet.success("search", res, pk );
 		}
 	});
 });
